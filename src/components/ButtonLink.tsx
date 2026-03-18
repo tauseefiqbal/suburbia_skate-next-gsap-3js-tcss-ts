@@ -17,6 +17,7 @@ export function ButtonLink({
   ...props
 }: ButtonProps) {
   return (
+    // @ts-expect-error — PrismicNextLink prefetch type lags behind Next.js 15
     <PrismicNextLink
       className={clsx(
         "button-cutout group mx-4 inline-flex items-center bg-gradient-to-b from-25% to-75% bg-[length:100%_400%] font-bold transition-[filter,background-position] duration-300 hover:bg-bottom",
