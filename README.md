@@ -13,29 +13,37 @@ A high-performance, visually immersive skateboard brand website featuring intera
 
 ## 📑 Table of Contents
 
-- [Features](#-features)
-  - [3D & Interactive](#3d--interactive)
-  - [Animations & Effects](#animations--effects)
-  - [Content & CMS](#content--cms)
-  - [Performance & DX](#performance--dx)
-- [Tech Stack](#-tech-stack)
-  - [Core Framework](#core-framework)
-  - [3D & Rendering](#3d--rendering)
-  - [Animation](#animation)
-  - [Styling](#styling)
-  - [CMS & Content](#cms--content)
-  - [Physics](#physics)
-  - [Utilities](#utilities)
-- [Deployment](#-deployment)
-- [How to Use App](#-how-to-use-app)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Development](#development)
-  - [Build for Production](#build-for-production)
-  - [Prismic Slice Machine](#prismic-slice-machine)
-- [Project Structure](#-project-structure)
-- [Environment Variables](#-environment-variables)
-- [License](#-license)
+- [🛹 Suburbia Skateboards](#-suburbia-skateboards)
+  - [📑 Table of Contents](#-table-of-contents)
+  - [✅ Features](#-features)
+    - [3D \& Interactive](#3d--interactive)
+    - [Animations \& Effects](#animations--effects)
+    - [Content \& CMS](#content--cms)
+    - [Performance \& DX](#performance--dx)
+  - [🛠 Tech Stack](#-tech-stack)
+    - [Core Framework](#core-framework)
+    - [3D \& Rendering](#3d--rendering)
+    - [Animation](#animation)
+    - [Styling](#styling)
+    - [CMS \& Content](#cms--content)
+    - [Physics](#physics)
+    - [Utilities](#utilities)
+  - [🚀 Deployment](#-deployment)
+  - [🧑‍💻 How to Use App for Regular User](#-how-to-use-app-for-regular-user)
+    - [Browsing the Homepage](#browsing-the-homepage)
+    - [Customizing a Skateboard](#customizing-a-skateboard)
+    - [Exploring Products \& Team](#exploring-products--team)
+    - [Watching Videos](#watching-videos)
+    - [Interactive Footer](#interactive-footer)
+  - [🧰 Getting Started (Developers)](#-getting-started-developers)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+    - [Development](#development)
+    - [Build for Production](#build-for-production)
+    - [Prismic Slice Machine](#prismic-slice-machine)
+  - [📁 Project Structure](#-project-structure)
+  - [🔑 Environment Variables](#-environment-variables)
+  - [📄 License](#-license)
 
 ---
 
@@ -79,6 +87,7 @@ A high-performance, visually immersive skateboard brand website featuring intera
 ---
 
 ## 🛠 Tech Stack
+
 
 ### Core Framework
 
@@ -143,7 +152,43 @@ The app is live and deployed on **Vercel**.
 
 ---
 
-## 📖 How to Use App
+## 🧑‍💻 How to Use App for Regular User
+
+No installation or account is needed — simply visit the live site and explore.
+
+### Browsing the Homepage
+
+1. Open the [live site](https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app/) in any modern browser.
+2. Scroll down to enjoy animated sections — the hero banner features a rotating 3D skateboard, and content slides into view as you scroll.
+
+### Customizing a Skateboard
+
+1. Click the **"Build Your Board"** button in the site header.
+2. The 3D Board Customizer opens with a live skateboard model.
+3. Use the on-screen controls to swap out:
+   - **Deck** — choose from different deck graphic and color options.
+   - **Wheels** — pick a wheel color/style.
+   - **Trucks** — select a truck metal finish.
+   - **Bolts** — choose a bolt metal finish.
+4. The 3D model updates in real time as you make selections.
+
+### Exploring Products & Team
+
+- **Product Grid** — browse the featured skateboard lineup with images and links.
+- **Team Grid** — meet the skaters featured on the team, with profile images and scribble-style decorations.
+
+### Watching Videos
+
+- Scroll to the video section and click play — the YouTube player loads lazily to keep the page fast.
+
+### Interactive Footer
+
+- At the bottom of the page, skateboard deck graphics fall using physics simulation.
+- Click and drag them around — they bounce and collide realistically powered by Matter.js.
+
+---
+
+## 🧰 Getting Started (Developers)
 
 ### Prerequisites
 
