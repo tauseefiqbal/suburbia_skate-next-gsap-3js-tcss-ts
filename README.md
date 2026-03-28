@@ -1,286 +1,336 @@
 # 🛹 Suburbia Skateboards
 
-A high-performance, visually immersive skateboard brand website featuring interactive 3D skateboard models, a real-time board customizer, physics-based animations, and CMS-driven content — built with Next.js 15, Three.js, GSAP, and Prismic.
-
-![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
-![Three.js](https://img.shields.io/badge/Three.js-0.171-black?logo=three.js)
-![GSAP](https://img.shields.io/badge/GSAP-3.12-88CE02)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?logo=tailwindcss)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+A high-performance, visually immersive skateboard brand website featuring an **interactive 3D board customizer**, physics-based footer animations, GSAP scroll effects, and fully CMS-driven content — built with Next.js 15, React Three Fiber, GSAP, Matter.js, and Tailwind CSS.
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
 - [🛹 Suburbia Skateboards](#-suburbia-skateboards)
-  - [📑 Table of Contents](#-table-of-contents)
-  - [✅ Features](#-features)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
     - [3D \& Interactive](#3d--interactive)
     - [Animations \& Effects](#animations--effects)
-    - [Content \& CMS](#content--cms)
-    - [Performance \& DX](#performance--dx)
-  - [🛠 Tech Stack](#-tech-stack)
-    - [Core Framework](#core-framework)
+    - [Content \& CMS Integration](#content--cms-integration)
+    - [UI/UX \& Navigation](#uiux--navigation)
+    - [Performance \& Developer Experience](#performance--developer-experience)
+  - [Tech Stack](#tech-stack)
+    - [Core Framework \& Runtime](#core-framework--runtime)
     - [3D \& Rendering](#3d--rendering)
-    - [Animation](#animation)
-    - [Styling](#styling)
+    - [Animation \& Physics](#animation--physics)
     - [CMS \& Content](#cms--content)
-    - [Physics](#physics)
-    - [Utilities](#utilities)
-  - [🚀 Deployment](#-deployment)
-  - [🧑‍💻 How to Use App for Regular User](#-how-to-use-app-for-regular-user)
+    - [Styling](#styling)
+    - [Utilities \& Tooling](#utilities--tooling)
+  - [Deployment](#deployment)
+    - [Live App](#live-app)
+    - [Platform Details](#platform-details)
+  - [How to Use App for Regular User](#how-to-use-app-for-regular-user)
     - [Browsing the Homepage](#browsing-the-homepage)
-    - [Customizing a Skateboard](#customizing-a-skateboard)
-    - [Exploring Products \& Team](#exploring-products--team)
-    - [Watching Videos](#watching-videos)
     - [Interactive Footer](#interactive-footer)
-  - [🧰 Getting Started (Developers)](#-getting-started-developers)
+    - [Using the Board Customizer](#using-the-board-customizer)
+  - [Getting Started (Developers)](#getting-started-developers)
     - [Prerequisites](#prerequisites)
     - [Installation](#installation)
-    - [Development](#development)
-    - [Build for Production](#build-for-production)
-    - [Prismic Slice Machine](#prismic-slice-machine)
-  - [📁 Project Structure](#-project-structure)
-  - [🔑 Environment Variables](#-environment-variables)
-  - [📄 License](#-license)
+    - [Available Scripts](#available-scripts)
+  - [Project Structure](#project-structure)
+  - [CMS Integration (Prismic)](#cms-integration-prismic)
+    - [Content Types](#content-types)
+    - [Slice Machine](#slice-machine)
+    - [API Routes](#api-routes)
+  - [Environment Variables](#environment-variables)
+    - [Environment Variable Reference](#environment-variable-reference)
+    - [Notes](#notes)
+  - [License](#license)
 
 ---
 
-## ✅ Features
+## Features
 
 ### 3D & Interactive
 
-- ✅ Interactive 3D skateboard model rendered with Three.js and React Three Fiber
-- ✅ Real-time board customizer — swap decks, wheels, trucks, and bolts live in 3D
-- ✅ Shareable customizer state via URL search params
-- ✅ GLTF model loading with texture preloading for seamless transitions
-- ✅ HDR environment lighting for realistic skateboard rendering
-- ✅ Constant wheel spin animation on featured boards
+- ✅ **Interactive 3D Skateboard Viewer** — Full 3D skateboard model rendered with Three.js and React Three Fiber, featuring realistic PBR materials, HDR environment lighting, and real-time camera controls (orbit, pan, zoom)
+- ✅ **Real-Time Board Customizer** — Live deck texture swapping, wheel customization, truck color selection, and bolt color selection on the `/build` page
+- ✅ **Shareable Customizer State** — Board configurations are stored in URL search params (`?wheel=X&deck=Y&truck=Z&bolt=W`), making it easy to share a custom build with anyone
+- ✅ **GLTF Model Loading** — Optimized 3D model loading with texture preloading for seamless transitions between component selections
+- ✅ **Constant Wheel Spin Animation** — Featured hero skateboards display continuously spinning wheels for a dynamic visual effect
+- ✅ **Advanced Material System** — Diffuse maps, normal maps, roughness maps, and specialized grip-tape bump mapping for photorealistic rendering
 
 ### Animations & Effects
 
-- ✅ GSAP-powered scroll and entrance animations throughout the site
-- ✅ Parallax mouse-tracking image effect on Text & Image sections
-- ✅ Intersection Observer–based slide-in reveal animations
-- ✅ SVG squiggle filter animations with custom CSS keyframes
-- ✅ Physics-based interactive footer using Matter.js — skateboard decks fall and respond to mouse drag
+- ✅ **GSAP-Powered Scroll Animations** — Scroll-triggered entrance animations throughout all content sections, with smooth camera transitions in the customizer
+- ✅ **Parallax Mouse-Tracking Effect** — Foreground and background image layers on Text & Image sections that respond to mouse movement for depth
+- ✅ **Intersection Observer Slide-In Reveals** — Content slides in from the side as it enters the viewport, with customizable delay and duration
+- ✅ **SVG Squiggle Filter Animations** — Procedural noise-based distortion effects using feTurbulence with 5 animation frames and smooth hover transitions
+- ✅ **Physics-Based Interactive Footer** — Skateboard decks fall with realistic gravity (Matter.js), supporting mouse drag interaction, responsive collision boundaries, reduced motion preferences, and mobile optimization
 
-### Content & CMS
+### Content & CMS Integration
 
-- ✅ Prismic CMS integration with Slice Machine for modular, editable page sections
-- ✅ Dynamic slices: Hero, Product Grid, Team Grid, Text & Image, Video Block
-- ✅ Lazy-loaded YouTube video player embedded via Video Block slice
-- ✅ Team member grid dynamically populated from Prismic content
-- ✅ Product grid with linked skateboard content relationships
-- ✅ SEO metadata and Open Graph images managed via Prismic Settings
+- ✅ **Prismic CMS Content Management** — All page content is modular and managed through Prismic Slice Machine, enabling easy content updates without code changes
+- ✅ **5 Dynamic Slice Types** — Hero (with 3D display), Product Grid (4-column), Team Grid (4-column), Text & Image (3 color themes), and Video Block (YouTube embed with custom masking)
+- ✅ **Lazy-Loaded YouTube Player** — Video embeds load on demand for faster initial page loads
+- ✅ **Dynamic Product Relationships** — Product Grid items link to individual skateboard content stored in Prismic
+- ✅ **Board Customizer CMS Config** — Deck, wheel, truck, and bolt options are driven by Prismic content, making them easy to update
+- ✅ **Draft Preview Mode** — Content editors can preview unpublished changes via authenticated preview endpoints
 
-### Performance & DX
+### UI/UX & Navigation
 
-- ✅ Next.js 15 App Router with server components and Turbopack dev server
-- ✅ Fully typed with TypeScript — auto-generated Prismic types
-- ✅ Fluid responsive typography and spacing via `fluid-tailwind`
-- ✅ Optimized image handling with `next/image` and Prismic image CDN
-- ✅ Preview and exit-preview API routes for Prismic draft content
-- ✅ Custom Google Fonts (Bowlby One SC, DM Mono) loaded via `next/font`
+- ✅ **Responsive Header Navigation** — Logo, dynamic CMS-driven nav menu, and cart button with item count; adapts to mobile with a hamburger menu
+- ✅ **Themed Button Components** — CTA buttons with icon support (skateboard, cart, plus) and multiple color variants (lime, orange, purple, blue)
+- ✅ **Responsive Design** — Fluid typography and spacing via fluid-tailwind that scales seamlessly across all viewport sizes
+- ✅ **Custom Brand Typography** — Bowlby One SC for display headings and DM Mono for body text, loaded via `next/font/google`
+- ✅ **Custom Brand Color Palette** — Brand Blue, Lime, Navy, Orange, Pink, Purple, and Gray for a cohesive visual identity
+
+### Performance & Developer Experience
+
+- ✅ **Next.js 15 App Router** — Server Components, Turbopack dev server, and optimized routing
+- ✅ **TypeScript** — Full type safety with auto-generated Prismic types
+- ✅ **Optimized Image Handling** — `next/image` with Prismic image CDN and modern formats (WebP, AVIF)
+- ✅ **Incremental Static Regeneration (ISR)** — Production caching with on-demand revalidation via webhooks
+- ✅ **SEO & Metadata** — Automatic metadata generation from Prismic settings with OpenGraph image support
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
-
-### Core Framework
+### Core Framework & Runtime
 
 | Technology | Version | Purpose |
 |---|---|---|
-| **Next.js** | 15 | React framework with App Router, server components, Turbopack |
-| **React** | 19 | UI library |
-| **TypeScript** | 5 | Type safety |
+| **Next.js** | 15.5.12 | React framework with App Router & Turbopack |
+| **React** | 19.2.3 | UI library |
+| **TypeScript** | 5.x | Type safety |
 
 ### 3D & Rendering
 
 | Technology | Version | Purpose |
 |---|---|---|
-| **Three.js** | 0.171 | 3D graphics engine |
-| **React Three Fiber** | 9 (RC) | Declarative Three.js for React |
-| **React Three Drei** | 9.120 | Helpers — `useGLTF`, `useTexture`, environment maps |
+| **Three.js** | 0.171.0 | 3D graphics engine |
+| **React Three Fiber** | 9.0.0-rc.1 | React renderer for Three.js |
+| **React Three Drei** | 9.120.4 | R3F utilities (controls, loaders, environment) |
 
-### Animation
-
-| Technology | Version | Purpose |
-|---|---|---|
-| **GSAP** | 3.12 | High-performance scroll and entrance animations |
-| **@gsap/react** | 2.1 | React integration for GSAP |
-
-### Styling
+### Animation & Physics
 
 | Technology | Version | Purpose |
 |---|---|---|
-| **Tailwind CSS** | 3.4 | Utility-first CSS framework |
-| **fluid-tailwind** | 1.0 | Fluid responsive typography and spacing |
-| **clsx** | 2.1 | Conditional class name joining |
+| **GSAP** | 3.12.5 | Advanced animation library |
+| **@gsap/react** | 2.1.1 | GSAP React integration |
+| **Matter.js** | 0.20.0 | 2D physics engine (footer interaction) |
 
 ### CMS & Content
 
 | Technology | Version | Purpose |
 |---|---|---|
-| **Prismic** | 7.13 | Headless CMS for pages, products, team, settings |
-| **Slice Machine** | 2.11 | Visual slice editor and code scaffolding |
-| **@prismicio/next** | 1.7 | Next.js integration (images, links, previews) |
+| **@prismicio/client** | 7.13.0 | Prismic API client |
+| **@prismicio/react** | 2.9.1 | Prismic React components |
+| **@prismicio/next** | 1.7.1 | Prismic Next.js integration |
 
-### Physics
+### Styling
 
 | Technology | Version | Purpose |
 |---|---|---|
-| **Matter.js** | 0.20 | 2D physics engine for interactive footer |
+| **Tailwind CSS** | 3.4.1 | Utility-first CSS framework |
+| **fluid-tailwind** | 1.0.4 | Responsive fluid typography & spacing |
+| **PostCSS** | 8.x | CSS processing |
 
-### Utilities
+### Utilities & Tooling
 
-| Technology | Purpose |
+| Technology | Version | Purpose |
+|---|---|---|
+| **react-icons** | 5.4.0 | Icon library |
+| **clsx** | 2.1.1 | Conditional className utility |
+| **ESLint** | 8.x | Code linting |
+| **Slice Machine UI** | 2.11.1 | Prismic content slice editor |
+
+---
+
+## Deployment
+
+### Live App
+
+**🔗 [https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app](https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app)**
+
+### Platform Details
+
+| Property | Value |
 |---|---|
-| **react-icons** | Icon library |
-| **PostCSS** | CSS processing pipeline |
-| **ESLint** | Code linting |
+| **Platform** | Vercel |
+| **Build Command** | `npm run build` |
+| **Output** | Standalone Next.js build |
+| **Node Version** | 18.x or higher |
+| **CI/CD** | Automatic deployment on push to `main` |
+| **Caching** | ISR with on-demand revalidation via Prismic webhooks |
 
 ---
 
-## 🚀 Deployment
-
-The app is live and deployed on **Vercel**.
-
-🔗 **Live URL:** [https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app/](https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app/)
-
----
-
-## 🧑‍💻 How to Use App for Regular User
-
-No installation or account is needed — simply visit the live site and explore.
+## How to Use App for Regular User
 
 ### Browsing the Homepage
 
-1. Open the [live site](https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app/) in any modern browser.
-2. Scroll down to enjoy animated sections — the hero banner features a rotating 3D skateboard, and content slides into view as you scroll.
-
-### Customizing a Skateboard
-
-1. Click the **"Build Your Board"** button in the site header.
-2. The 3D Board Customizer opens with a live skateboard model.
-3. Use the on-screen controls to swap out:
-   - **Deck** — choose from different deck graphic and color options.
-   - **Wheels** — pick a wheel color/style.
-   - **Trucks** — select a truck metal finish.
-   - **Bolts** — choose a bolt metal finish.
-4. The 3D model updates in real time as you make selections.
-
-### Exploring Products & Team
-
-- **Product Grid** — browse the featured skateboard lineup with images and links.
-- **Team Grid** — meet the skaters featured on the team, with profile images and scribble-style decorations.
-
-### Watching Videos
-
-- Scroll to the video section and click play — the YouTube player loads lazily to keep the page fast.
+1. Open the app at [https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app](https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app).
+2. Scroll down to enjoy animated sections — the hero section with an interactive 3D skateboard, featured products, team members, and video content.
+3. Clicking Top, Middle, or Bottom sections of the  TOP part of the  3D interactive skateboard to see different types of movements of the 3D Skateboard.
 
 ### Interactive Footer
 
-- At the bottom of the page, skateboard deck graphics fall using physics simulation.
-- Click and drag them around — they bounce and collide realistically powered by Matter.js.
+- At the bottom of the page, skateboard deck graphics fall using a real-time physics simulation.
+- Click and drag them around — they bounce and collide realistically, powered by Matter.js.
+
+### Using the Board Customizer
+
+1. Click the **"Build Your Board"** button in the site header or navigate to `/build`.
+2. Use the control panel to customize your board:
+   - **Deck** — Browse and select from available deck designs.
+   - **Wheels** — Choose a wheel style.
+   - **Trucks** — Pick a truck color.
+   - **Bolts** — Select a bolt color.
+3. The 3D preview updates in real time as you make selections, with the camera smoothly transitioning to highlight the changed component.
 
 ---
 
-## 🧰 Getting Started (Developers)
+## Getting Started (Developers)
 
 ### Prerequisites
 
-- **Node.js** 18+ installed
-- **npm** or **yarn** package manager
-- A [Prismic](https://prismic.io/) account with a repository named `suburbia`
+- **Node.js** 18+ (20+ recommended)
+- **npm** or **pnpm**
+- **Git**
 
 ### Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/tauseefiqbal/suburbia_skate-next-gsap-3js-tcss-ts.git
-
-# Navigate into the project directory
-cd suburbia_skate-next-gsap-3js-tcss-ts
+cd suburbia_skate
 
 # Install dependencies
 npm install
-```
 
-### Development
-
-```bash
-# Start the development server with Turbopack
+# Start the development server (Turbopack)
 npm run dev
 ```
 
-The app will be available at [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Build for Production
+### Available Scripts
 
-```bash
-# Create an optimized production build
-npm run build
-
-# Start the production server
-npm start
-```
-
-### Prismic Slice Machine
-
-```bash
-# Launch the Slice Machine UI to manage content models
-npm run slicemachine
-```
-
-The Slice Machine UI will open at [http://localhost:9999](http://localhost:9999), and the local slice simulator is available at [http://localhost:3000/slice-simulator](http://localhost:3000/slice-simulator).
+| Script | Command | Description |
+|---|---|---|
+| `dev` | `npm run dev` | Start dev server with Turbopack |
+| `build` | `npm run build` | Create production build |
+| `start` | `npm run start` | Start production server |
+| `lint` | `npm run lint` | Run ESLint |
+| `slicemachine` | `npm run slicemachine` | Open Prismic Slice Machine editor |
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 suburbia_skate/
 ├── public/                     # Static assets (textures, HDR maps)
 │   ├── hdr/                    # HDR environment maps for 3D lighting
-│   └── skateboard/             # Skateboard model textures
+│   └── skateboard/             # Skateboard textures & normal maps
+│
 ├── src/
-│   ├── app/
-│   │   ├── (with-header)/      # Route group with header layout
-│   │   ├── api/                # API routes (preview, revalidate)
+│   ├── app/                    # Next.js App Router
+│   │   ├── (with-header)/      # Routes with Header + Footer layout
+│   │   │   ├── layout.tsx      # Header/Footer wrapper
+│   │   │   └── page.tsx        # Homepage (Prismic SliceZone)
 │   │   ├── build/              # Board customizer page
-│   │   └── fonts/              # Font files
-│   ├── components/             # Shared UI components
-│   │   ├── Skateboard.tsx      # 3D skateboard model (Three.js)
+│   │   │   ├── context.tsx     # Customizer state management
+│   │   │   ├── Controls.tsx    # Deck/Wheel/Truck/Bolt selectors
+│   │   │   └── Preview.tsx     # 3D canvas (React Three Fiber)
+│   │   ├── api/                # API routes (preview, revalidate)
+│   │   └── slice-simulator/    # Slice Machine preview
+│   │
+│   ├── components/             # Reusable UI components
+│   │   ├── Skateboard.tsx      # 3D skateboard model (R3F)
 │   │   ├── FooterPhysics.tsx   # Matter.js physics footer
-│   │   ├── Header.tsx          # Site navigation header
-│   │   ├── Footer.tsx          # Site footer
-│   │   └── SlideIn.tsx         # Scroll-triggered reveal animation
-│   ├── lib/                    # Utility hooks
-│   └── slices/                 # Prismic slice components
-│       ├── Hero/               # Hero section with interactive 3D board
-│       ├── ProductGrid/        # Product showcase grid
-│       ├── TeamGrid/           # Team members grid
-│       ├── TextAndImage/       # Parallax text & image section
-│       └── VideoBlock/         # Lazy-loaded YouTube embed
-├── customtypes/                # Prismic custom type definitions
+│   │   ├── Header.tsx          # Navigation header
+│   │   ├── SlideIn.tsx         # Scroll animation wrapper
+│   │   └── SVGFilters.tsx      # SVG squiggle filter effects
+│   │
+│   ├── slices/                 # Prismic slice components
+│   │   ├── Hero/               # Hero section with 3D skateboard
+│   │   ├── ProductGrid/        # Product showcase grid
+│   │   ├── TeamGrid/           # Team member grid
+│   │   ├── TextAndImage/       # Content section with parallax
+│   │   └── VideoBlock/         # Lazy YouTube embed
+│   │
+│   └── lib/                    # Utility hooks
+│
+├── customtypes/                # Prismic content type schemas
 └── slicemachine.config.json    # Slice Machine configuration
 ```
 
 ---
 
-## 🔑 Environment Variables
+## CMS Integration (Prismic)
 
-Create a `.env.local` file in the project root with your Prismic repository credentials:
+### Content Types
 
-```env
-NEXT_PUBLIC_PRISMIC_ENVIRONMENT=your-prismic-repo-name
+| Type | Description |
+|---|---|
+| `homepage` | Main landing page composed of dynamic slices |
+| `settings` | Site-wide settings (navigation links, footer images, metadata) |
+| `skateboard` | Individual skateboard product data |
+| `skater` | Team member / skater profiles |
+| `board_customizer` | Customizer options (decks, wheels, trucks, bolts) |
+
+### Slice Machine
+
+Run the Slice Machine editor locally to manage content slices:
+
+```bash
+npm run slicemachine
 ```
+
+The slice simulator is available at [http://localhost:3000/slice-simulator](http://localhost:3000/slice-simulator) for previewing slices during development.
+
+**Available Slices:**
+
+| Slice | Description |
+|---|---|
+| `Hero` | Full-screen hero with heading, CTA, and interactive 3D skateboard |
+| `ProductGrid` | 4-column product grid with images, names, and prices |
+| `TeamGrid` | 4-column team member grid with photos and bios |
+| `TextAndImage` | Two-column section with text, CTA, and parallax image (3 color themes) |
+| `VideoBlock` | YouTube video embed with custom SVG masking |
+
+### API Routes
+
+| Route | Method | Purpose |
+|---|---|---|
+| `/api/preview` | `GET` | Enter Prismic draft preview mode |
+| `/api/exit-preview` | `GET` | Exit preview mode and return to live content |
+| `/api/revalidate` | `POST` | Trigger on-demand ISR cache revalidation via webhook |
 
 ---
 
-## 📄 License
+## Environment Variables
 
-This project is for educational and portfolio purposes.
+This project uses environment variables to configure the Prismic CMS connection. For local development, create a `.env.local` file in the root directory:
+
+```bash
+# .env.local (create this file for local development)
+NEXT_PUBLIC_PRISMIC_ENVIRONMENT=suburbia
+```
+
+### Environment Variable Reference
+
+| Variable | Required | Default | Description |
+|---|---|---|---|
+| `NEXT_PUBLIC_PRISMIC_ENVIRONMENT` | No | `suburbia` | Prismic repository name (defined in `slicemachine.config.json`) |
+| `NODE_ENV` | Auto-set | `development` | Node environment (`development` or `production`) — automatically set by Next.js |
+
+### Notes
+
+- **`NEXT_PUBLIC_*` variables** are exposed to the browser and can be used in client-side code.
+- The `NEXT_PUBLIC_PRISMIC_ENVIRONMENT` variable is optional because it defaults to the `repositoryName` value from `slicemachine.config.json`.
+- **For production deployment on Vercel**, environment variables are configured in the Vercel dashboard and automatically injected during build time.
+
+---
+
+## License
+
+This project is licensed under the MIT License.
