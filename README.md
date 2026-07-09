@@ -147,7 +147,7 @@ A high-performance, visually immersive skateboard brand website featuring an **i
 
 ### Live App
 
-**🔗 [https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app](https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app)**
+**🔗 [https://suburbia-skate-next-gsap-3js-tcss-ts.netlify.app/](https://suburbia-skate-next-gsap-3js-tcss-ts.netlify.app/)**
 
 ### Platform Details
 
@@ -166,8 +166,8 @@ A high-performance, visually immersive skateboard brand website featuring an **i
 
 ### Browsing the Homepage
 
-1. Open the app at [https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app](https://suburbia-skate-next-gsap-3js-tcss-t.vercel.app).
-2. Scroll down to enjoy animated sections — the hero section with an interactive 3D skateboard, featured products, team members, and video content.
+1. Open the app at [https://suburbia-skate-next-gsap-3js-tcss-ts.netlify.app/](https://suburbia-skate-next-gsap-3js-tcss-ts.netlify.app/).
+2. X — the hero section with an interactive 3D skateboard, featured products, team members, and video content.
 3. Clicking Top, Middle, or Bottom sections of the  TOP part of the  3D interactive skateboard to see different types of movements of the 3D Skateboard.
 
 ### Interactive Footer
